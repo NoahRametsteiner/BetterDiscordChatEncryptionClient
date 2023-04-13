@@ -182,6 +182,8 @@ def addNewChat():
     print("channel id")
     channelid = input()
     appendNewChatToJson(username,channelid,private_key,public_key)
+    global selectedChat
+    selectedChat = -1
 
 def addChatPublicKey(selectedChat, chat_public_key):
     oldjson = loadJson()
@@ -203,7 +205,6 @@ def displayPublicKey(selectedChat):
     else:
         initTerminal()
 
-#TODO: If you add a new user in selecedChat there still is /a and leads to an exeption.
 def checkForChatPublicKey(selectedChat):
     if json_obj[int(selectedChat)]["chat_public_key"] == '':
         displayPublicKey(selectedChat)
