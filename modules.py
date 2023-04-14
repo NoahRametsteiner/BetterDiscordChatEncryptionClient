@@ -1,7 +1,6 @@
 import requests
 import os
 import json
-import base64
 from termcolor import colored
 from cryptography.fernet import Fernet
 
@@ -101,9 +100,15 @@ def initTerminal():
         i=i+1
     
     selectedChat = input()
+    
     if selectedChat == "/a":
         addNewChat()
     elif selectedChat != 0:
+
+        checkIfsymmetricKeyIsPressent(selectedChat)
+        if(selectedChat == -1):
+            return
+
         try:
             symmetric_chat_key = json_obj[int(selectedChat)]["symmetric_chat_key"]
             global chat_id
@@ -171,6 +176,9 @@ def symmetricKeyHandling(selectedChat):
         addsymmetricKeyToChat(symmetric_chat_key.encode('utf-8'), selectedChat)
     else:
         initTerminal()
+    
+    global json_obj
+    json_obj = loadJson()
 
 def checkIfsymmetricKeyIsPressent(selectedChat):
     if json_obj[int(selectedChat)]["symmetric_chat_key"] == '':
@@ -188,7 +196,7 @@ def loadTokenFromFile():
         json_bytes = string.read().rstrip()
     return json_bytes.decode('utf-8')
 
-#Global Settings
+#Global Settings and Vars
 json_obj = loadJson()
 nummer_of_messages = 50
 selectedChat = -1
