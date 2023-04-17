@@ -192,10 +192,34 @@ def getUsermaneFromToken():
     return response_json["username"]
 
 def loadTokenFromFile():
-    with open("f", "rb") as string:
-        json_bytes = string.read().rstrip()
-    return json_bytes.decode('utf-8')
+    try:
+        with open("t", "rb") as string:
+            json_bytes = string.read().rstrip()
+            json_token = json.loads(json_bytes.decode("utf-8"))
+            token = json_token['token']
+        
+        if json_token["token"] == "":
+            return initToken()
+        return token
+    except:
+        createTokenFile()
+        return initToken()
 
+def initToken():
+    cleanTerminal()
+    print(colored("please enter your discrod token:", 'yellow'))
+    token = input()
+    token_json_string = '{"token":"'+token+'"}'
+    tokens_json = json.loads(token_json_string)
+    
+    with open('t', 'w') as f:
+        json.dump(tokens_json, f)
+    return token
+        
+
+def createTokenFile():
+    f = open("t", 'wt')
+    f.close()
 #Global Settings and Vars
 json_obj = loadJson()
 nummer_of_messages = 50
