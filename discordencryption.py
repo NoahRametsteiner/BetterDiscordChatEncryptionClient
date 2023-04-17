@@ -47,9 +47,9 @@ def getMessagesFromChat(token, nummer_of_messages, chat_id):
     return response_json
 
 def loadJson():
-    with open("keys.json", "rb") as string:
-        json_bytes = string.read().rstrip()
     try:
+        with open("keys.json", "rb") as string:
+            json_bytes = string.read().rstrip()
         return json.loads(json_bytes.decode("utf-8"))
     except:
         initJson()
@@ -86,8 +86,9 @@ def cleanTerminal():
     os.system('cls||clear')
 
 def initJson():
-    with open('keys.json', 'w') as f:
-        f.write('[{"username": "username", "chat_id": "chat_id", "symmetric_chat_key": ""}]')
+    f = open('keys.json', 'wt')
+    f.write('[{"username": "username", "chat_id": "chat_id", "symmetric_chat_key": ""}]')
+    f.close()
 
 def initTerminal():
     global selectedChat 
