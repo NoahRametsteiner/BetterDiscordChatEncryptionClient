@@ -4,7 +4,7 @@ This small project uses Python and the discord api to send and read messages tha
 
 ## Installation and setup
 
-Run the installation script. This will install the packages needed. The packages may chnage in the futur so please always run this if you download the program.
+Run the installation script. This will install the packages needed. The packages may chnage in the future so please always run this if you download the program.
 
 Packages that are installed:
 - requests
@@ -34,4 +34,5 @@ Messages that are not encrypted are marked red. Messages that are encryped are d
 
 ## TODO
 - Add a way to securly exchange the key.
-- Interface upgrade. (Read chat whit input at the same time)
+- Interface upgrade. (auto u)
+- Encrypt the token with a password.
