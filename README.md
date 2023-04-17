@@ -24,7 +24,7 @@ Now you need to generate a key or enter an existing one.
 **TODO:**
 Add a way to securly exchange the key.
 
-Copy the key and give it to your partner.
+Copy the key and give it to your partner. The keys need to be the same on both sides in order to read the messages!
 
 ## Use
 
