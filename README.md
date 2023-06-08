@@ -1,4 +1,4 @@
-# PythonDiscordEncryptionApp
+# BDCEC (Better Discord Chat Encryption Client)
 
 This small project uses Python and the discord api to send and read messages that a are encrypted befor beeing sent.
 
